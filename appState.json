@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "kmum.js",
         "cursor": {
-          "lineNumber": 1,
-          "column": 1
+          "lineNumber": 16,
+          "column": 36
         },
         "config": {
           "runtime": "nodejs14.x",
@@ -24,8 +24,10 @@
         },
         "triggers": [
           {
-            "resourceName": "apigKAPIany",
-            "config": {}
+            "resourceName": "cognitoKCogResource",
+            "config": {
+              "triggerType": "CreateAuthChallenge"
+            }
           }
         ],
         "lastUpdated": 1650600468839,
@@ -55,25 +57,6 @@
     ],
     "currentFileId": "c1621f6c-f27d-4bef-a7b4-1d085ad38003",
     "resources": {
-      "apigKAPIany": {
-        "name": "apigKAPIany",
-        "type": "API_GATEWAY",
-        "config": {
-          "apiType": 1,
-          "apiMode": 0,
-          "apiName": "KAPI",
-          "endpointType": "EDGE",
-          "resourceMode": 0,
-          "resourceName": "",
-          "resourcePath": "/",
-          "restMethod": "ANY",
-          "proxyIntegration": false,
-          "enableCORS": false,
-          "stageMode": 0,
-          "stageName": "Test",
-          "mode": 0
-        }
-      },
       "cognitoKCogResource": {
         "name": "cognitoKCogResource",
         "type": "CognitoIdentityServiceProvider",
@@ -231,6 +214,25 @@
             }
           }
         }
+      },
+      "apigKAPIany": {
+        "name": "apigKAPIany",
+        "type": "API_GATEWAY",
+        "config": {
+          "apiType": 1,
+          "apiMode": 0,
+          "apiName": "KAPI",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "",
+          "resourcePath": "/",
+          "restMethod": "ANY",
+          "proxyIntegration": false,
+          "enableCORS": true,
+          "stageMode": 0,
+          "stageName": "Test2",
+          "mode": 0
+        }
       }
     },
     "customTemplate": {
@@ -270,7 +272,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1650601168553
+    "lastSave": 1650607620026
   },
   "VCS_STATE": {
     "provider": "GitHub",
