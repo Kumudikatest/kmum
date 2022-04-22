@@ -12,24 +12,6 @@
     }
   },
   "Outputs": {
-    "redisKcluster": {
-      "Description": "Endpoint of the ElastiCache cluster: kcluster",
-      "Value": {
-        "Fn::Join": [
-          ":",
-          [
-            {
-              "Fn::GetAtt": [
-                "redisKcluster",
-                "PrimaryEndPoint.Address"
-              ]
-            },
-            ":",
-            6379
-          ]
-        ]
-      }
-    },
     "snsKtopic": {
       "Description": "ARN of SNS topic Ktopic",
       "Value": {
@@ -47,72 +29,6 @@
     }
   },
   "Resources": {
-    "redisKclusterVPC": {
-      "Type": "AWS::EC2::VPC",
-      "Properties": {
-        "CidrBlock": "10.0.0.0/16",
-        "EnableDnsHostnames": "true",
-        "EnableDnsSupport": "true",
-        "InstanceTenancy": "default",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "kvpc"
-          }
-        ]
-      }
-    },
-    "redisKclusterSubnet": {
-      "Type": "AWS::EC2::Subnet",
-      "Properties": {
-        "VpcId": {
-          "Ref": "redisKclusterVPC"
-        },
-        "CidrBlock": "10.0.0.0/20",
-        "Tags": [
-          {
-            "Key": "Name",
-            "Value": "ksubset"
-          }
-        ]
-      }
-    },
-    "redisKclusterSubnetGroup": {
-      "Type": "AWS::ElastiCache::SubnetGroup",
-      "Properties": {
-        "Description": "kcluster subnet group",
-        "SubnetIds": [
-          {
-            "Ref": "redisKclusterSubnet"
-          }
-        ]
-      }
-    },
-    "redisKcluster": {
-      "Type": "AWS::ElastiCache::ReplicationGroup",
-      "Properties": {
-        "AutomaticFailoverEnabled": true,
-        "CacheNodeType": "cache.t2.small",
-        "CacheSubnetGroupName": {
-          "Ref": "redisKclusterSubnetGroup"
-        },
-        "Engine": "redis",
-        "EngineVersion": "5.0.4",
-        "NumNodeGroups": "1",
-        "Port": "6379",
-        "ReplicasPerNodeGroup": "2",
-        "ReplicationGroupDescription": "kclustdescrp",
-        "ReplicationGroupId": "kcluster",
-        "SecurityGroupIds": [
-          {
-            "Fn::GetAtt": [
-              "redisKclusterVPC",
-              "DefaultSecurityGroup"
-            ]
-          }
-        ]
-      }
-    },
     "snsKtopic": {
       "Type": "AWS::SNS::Topic",
       "Properties": {
@@ -157,29 +73,8 @@
           "Variables": {
             "SIGMA_AWS_ACC_ID": {
               "Ref": "AWS::AccountId"
-            },
-            "EndPoint_redisKcluster": {
-              "Fn::GetAtt": [
-                "redisKcluster",
-                "PrimaryEndPoint.Address"
-              ]
             }
           }
-        },
-        "VpcConfig": {
-          "SecurityGroupIds": [
-            {
-              "Fn::GetAtt": [
-                "redisKclusterVPC",
-                "DefaultSecurityGroup"
-              ]
-            }
-          ],
-          "SubnetIds": [
-            {
-              "Ref": "redisKclusterSubnet"
-            }
-          ]
         }
       }
     },
@@ -187,8 +82,7 @@
       "Type": "AWS::IAM::Role",
       "Properties": {
         "ManagedPolicyArns": [
-          "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-          "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
         ],
         "AssumeRolePolicyDocument": {
           "Version": "2012-10-17",
