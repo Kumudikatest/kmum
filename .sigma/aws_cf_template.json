@@ -200,15 +200,7 @@
             "Name": "website",
             "Required": false
           }
-        ],
-        "LambdaConfig": {
-          "CreateAuthChallenge": {
-            "Fn::Sub": [
-              "arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:kmum",
-              {}
-            ]
-          }
-        }
+        ]
       }
     },
     "kmum": {
@@ -317,22 +309,6 @@
             }
           }
         ]
-      }
-    },
-    "cognitoKCogResourcePermission": {
-      "Type": "AWS::Lambda::Permission",
-      "Properties": {
-        "Action": "lambda:InvokeFunction",
-        "FunctionName": {
-          "Ref": "kmum"
-        },
-        "SourceArn": {
-          "Fn::GetAtt": [
-            "cognitoKCogResource",
-            "Arn"
-          ]
-        },
-        "Principal": "cognito-idp.amazonaws.com"
       }
     }
   }

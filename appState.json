@@ -22,21 +22,14 @@
           "layers": [],
           "name": "kmum"
         },
-        "triggers": [
-          {
-            "resourceName": "cognitoKCogResource",
-            "config": {
-              "triggerType": "CreateAuthChallenge"
-            }
-          }
-        ],
+        "triggers": [],
         "lastUpdated": 1650600468839,
         "testCases": {
           "5db437d2-10af-458a-a41f-d54dc226ca48": {
             "id": "5db437d2-10af-458a-a41f-d54dc226ca48",
             "name": "Test event",
             "functionId": "c1621f6c-f27d-4bef-a7b4-1d085ad38003",
-            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
+            "event": "{\r\n    \"version\": 1,\r\n    \"triggerSource\": \"string\",\r\n    \"region\": \"ap-south-1\",\r\n    \"userPoolId\": \"string\",\r\n    \"userName\": \"string\",\r\n    \"callerContext\": {\r\n        \"awsSdkVersion\": \"string\",\r\n        \"clientId\": \"string\"\r\n    },\r\n    \"request\": {\r\n        \"userAttributes\": {\r\n            \"string\": \"string\"\r\n        }\r\n    },\r\n    \"response\": {}\r\n}",
             "eventTemplate": "hello-world"
           }
         }
@@ -57,6 +50,25 @@
     ],
     "currentFileId": "c1621f6c-f27d-4bef-a7b4-1d085ad38003",
     "resources": {
+      "apigKAPIany": {
+        "name": "apigKAPIany",
+        "type": "API_GATEWAY",
+        "config": {
+          "apiType": 1,
+          "apiMode": 0,
+          "apiName": "KAPI",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "",
+          "resourcePath": "/",
+          "restMethod": "ANY",
+          "proxyIntegration": false,
+          "enableCORS": true,
+          "stageMode": 0,
+          "stageName": "Test2",
+          "mode": 0
+        }
+      },
       "cognitoKCogResource": {
         "name": "cognitoKCogResource",
         "type": "CognitoIdentityServiceProvider",
@@ -214,25 +226,6 @@
             }
           }
         }
-      },
-      "apigKAPIany": {
-        "name": "apigKAPIany",
-        "type": "API_GATEWAY",
-        "config": {
-          "apiType": 1,
-          "apiMode": 0,
-          "apiName": "KAPI",
-          "endpointType": "EDGE",
-          "resourceMode": 0,
-          "resourceName": "",
-          "resourcePath": "/",
-          "restMethod": "ANY",
-          "proxyIntegration": false,
-          "enableCORS": true,
-          "stageMode": 0,
-          "stageName": "Test2",
-          "mode": 0
-        }
       }
     },
     "customTemplate": {
@@ -272,7 +265,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1650607620026
+    "lastSave": 1650613132882
   },
   "VCS_STATE": {
     "provider": "GitHub",
