@@ -5,7 +5,8 @@ exports.handler = async (event) => {
     try {
         let data = await cognito_idp.listUsers({
             UserPoolId: process.env.UserPoolId_cognitoKCogResource,
-            Limit: 10
+            AttributesToGet: ['email', 'name'],
+            Limit: 11
         }).promise();
         console.log(data);
 

@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "kmum.js",
         "cursor": {
-          "lineNumber": 12,
-          "column": 20
+          "lineNumber": 1,
+          "column": 1
         },
         "config": {
           "runtime": "nodejs14.x",
@@ -28,7 +28,16 @@
             "config": {}
           }
         ],
-        "lastUpdated": 1650530144139
+        "lastUpdated": 1650600468839,
+        "testCases": {
+          "5db437d2-10af-458a-a41f-d54dc226ca48": {
+            "id": "5db437d2-10af-458a-a41f-d54dc226ca48",
+            "name": "Test event",
+            "functionId": "c1621f6c-f27d-4bef-a7b4-1d085ad38003",
+            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
+            "eventTemplate": "hello-world"
+          }
+        }
       },
       "efe849e6-484a-46ce-93bb-9ad3a9e65e20": {
         "id": "efe849e6-484a-46ce-93bb-9ad3a9e65e20",
@@ -71,6 +80,7 @@
         "config": {
           "mode": 0,
           "name": "KCogResource",
+          "arn": "arn:aws:cognito-idp:ap-south-1:318300609668:userpool/undefined",
           "userPool": {
             "Name": "KCogResource",
             "isNew": true,
@@ -226,7 +236,7 @@
     "customTemplate": {
       "syntax": "JSON",
       "overrideDefault": false,
-      "dialect": null,
+      "dialect": "CloudFormation",
       "definitions": null
     },
     "envVariables": [
@@ -252,7 +262,7 @@
     }
   },
   "PROJECT_META": {
-    "sigmaVersion": "1.10.1",
+    "sigmaVersion": "1.10.2",
     "projectName": "kmum",
     "projectDescription": "",
     "projectVersion": "1.0.0",
@@ -260,7 +270,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1650552908074
+    "lastSave": 1650601168553
   },
   "VCS_STATE": {
     "provider": "GitHub",
