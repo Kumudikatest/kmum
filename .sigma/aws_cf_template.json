@@ -30,6 +30,12 @@
         ]
       }
     },
+    "snsKtopic": {
+      "Description": "ARN of SNS topic Ktopic",
+      "Value": {
+        "Ref": "snsKtopic"
+      }
+    },
     "kmum": {
       "Description": "ARN of Lambda function kmum",
       "Value": {
@@ -105,6 +111,19 @@
             ]
           }
         ]
+      }
+    },
+    "snsKtopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "DisplayName": "kname",
+        "Subscription": [
+          {
+            "Endpoint": "+9772445224",
+            "Protocol": "sms"
+          }
+        ],
+        "TopicName": "Ktopic"
       }
     },
     "kmum": {
@@ -187,6 +206,34 @@
             }
           ]
         }
+      }
+    },
+    "snsKtopickmumSubscription0": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Endpoint": {
+          "Fn::GetAtt": [
+            "kmum",
+            "Arn"
+          ]
+        },
+        "Protocol": "lambda",
+        "TopicArn": {
+          "Ref": "snsKtopic"
+        }
+      }
+    },
+    "snsKtopickmumPermission": {
+      "Type": "AWS::Lambda::Permission",
+      "Properties": {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": {
+          "Ref": "kmum"
+        },
+        "SourceArn": {
+          "Ref": "snsKtopic"
+        },
+        "Principal": "sns.amazonaws.com"
       }
     }
   }

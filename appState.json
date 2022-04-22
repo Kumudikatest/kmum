@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "kmum.js",
         "cursor": {
-          "lineNumber": 2,
-          "column": 52
+          "lineNumber": 11,
+          "column": 1
         },
         "config": {
           "runtime": "nodejs14.x",
@@ -22,7 +22,12 @@
           "layers": [],
           "name": "kmum"
         },
-        "triggers": [],
+        "triggers": [
+          {
+            "resourceName": "snsKtopic",
+            "config": {}
+          }
+        ],
         "lastUpdated": 1650600468839,
         "testCases": {
           "5db437d2-10af-458a-a41f-d54dc226ca48": {
@@ -303,6 +308,23 @@
             "validity": true
           }
         }
+      },
+      "snsKtopic": {
+        "name": "snsKtopic",
+        "type": "SNS",
+        "config": {
+          "topicMode": 0,
+          "topicName": "Ktopic",
+          "topicArn": "arn:aws:sns:ap-south-1:CUR_AWS_ACCOUNT:Ktopic",
+          "snsType": 0,
+          "topicDisplayName": "kname",
+          "subscriptions": [
+            {
+              "type": "sms",
+              "endpoint": "+9772445224"
+            }
+          ]
+        }
       }
     },
     "customTemplate": {
@@ -349,7 +371,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1650617319590
+    "lastSave": 1650618309286
   },
   "VCS_STATE": {
     "provider": "GitHub",
