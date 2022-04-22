@@ -1,20 +1,24 @@
+const SL_REDIS = require('slappforge-sdk-redis');
+const clusterManager = require('./ClusterManager');
+const redis = new SL_REDIS.Redis(clusterManager);
 const AWS = require('aws-sdk');
 const cognito_idp = new AWS.CognitoIdentityServiceProvider();
 
 exports.handler = async (event) => {
     debugger;
- try {
-        let data = await cognito_idp.listUsers({
-            UserPoolId: process.env.UserPoolId_cognitoKCogResource,
-            AttributesToGet: ['email', 'name'],
-            Limit: 11
-        }).promise();
-        console.log(data);
-
-    } catch (err) {
-        console.log(err);
-        // error handling goes here
-     };
+    // You must always quit the redis client after it's used
+    redis.persist({
+        clusterIdentifier: 'kcluster',
+        params: ['K']
+    }, function (error, response, redisClient) {
+        if (error) {
+            console.log(error);
+            callback(error);
+        } else {
+            console.log(response);
+            redisClient.quit();
+        }
+    });
 
     return { "message": "Successfully executed" };
 };

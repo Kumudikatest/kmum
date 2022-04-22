@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "kmum.js",
         "cursor": {
-          "lineNumber": 16,
-          "column": 36
+          "lineNumber": 2,
+          "column": 52
         },
         "config": {
           "runtime": "nodejs14.x",
@@ -43,6 +43,16 @@
         "children": [],
         "isRemovable": true,
         "filePath": "package.json"
+      },
+      "d9464f83-996d-43af-836d-bafe792494b4": {
+        "id": "d9464f83-996d-43af-836d-bafe792494b4",
+        "parent": null,
+        "name": "ClusterManager.js",
+        "type": "JS_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "ClusterManager.js"
       }
     },
     "openFiles": [
@@ -226,6 +236,73 @@
             }
           }
         }
+      },
+      "redis-kcluster": {
+        "name": "redis-kcluster",
+        "type": "Redis",
+        "config": {
+          "clusterConfig": {
+            "engineType": "redis",
+            "clusterSpec": {
+              "instanceFamily": "t2",
+              "nodeTypeClass": "cache.t2.small",
+              "engineVersion": "5.0.4",
+              "clusterModeEnabled": false,
+              "autoFailoverEnabled": true,
+              "numOfShards": 3,
+              "numOfReplicas": 2
+            },
+            "clusterSetting": {
+              "clusterName": "kcluster",
+              "clusterDescription": "kclustdescrp",
+              "port": 6379
+            },
+            "vpcSpec": {
+              "vpcType": "NEW",
+              "existingVPC": {
+                "vpcID": "",
+                "subNetID": "",
+                "securityGroupID": ""
+              },
+              "newVPC": {
+                "vpcName": "kvpc",
+                "vpcIPv4CIDR": "10.0.0.0/16",
+                "subnetName": "ksubset",
+                "subnetIPv4CIDR": "10.0.0.0/20"
+              }
+            },
+            "host": "",
+            "doesExist": false,
+            "alreadyDeployed": false,
+            "redisClient": "",
+            "external": false
+          },
+          "clusterResources": [],
+          "editMode": false,
+          "enableInject": true,
+          "isGlobalEditMode": false,
+          "isClusterSelectionValid": true,
+          "isNewFromGlobal": false,
+          "mode": 0,
+          "operation": {
+            "str": "REDIS_PERSIST",
+            "operation": "persist",
+            "displayName": "PERSIST",
+            "type": {
+              "str": "REDIS_KEYS",
+              "type": "keys",
+              "displayName": "KEYS"
+            }
+          },
+          "params": [],
+          "projectRegion": "ap-south-1",
+          "reusableMode": false,
+          "showOperations": true,
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          }
+        }
       }
     },
     "customTemplate": {
@@ -252,6 +329,13 @@
           "version": "2.817.0",
           "dev": true,
           "notRemovable": false
+        },
+        "slappforge-sdk-redis": {
+          "name": "slappforge-sdk-redis",
+          "language": "nodejs",
+          "version": "0.0.3",
+          "dev": false,
+          "notRemovable": false
         }
       }
     }
@@ -265,7 +349,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1650613132882
+    "lastSave": 1650617319590
   },
   "VCS_STATE": {
     "provider": "GitHub",
