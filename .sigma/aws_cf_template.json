@@ -99,7 +99,29 @@
               }
             }
           ]
-        }
+        },
+        "Policies": [
+          {
+            "PolicyName": "kmumPolicy",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "SES:SendEmail",
+                    "SES:SendRawEmail"
+                  ],
+                  "Resource": [
+                    "arn:aws:ses:ap-south-1:318300609668:identity/testsigma18+April20th2022GSK@gmail.com",
+                    "arn:aws:ses:ap-south-1:318300609668:identity/kumudika@adroitlogic.com",
+                    "arn:aws:ses:ap-south-1:318300609668:identity/kumudikarupasinghe@gmail.com"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "snsKtopickmumSubscription0": {

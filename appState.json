@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "kmum.js",
         "cursor": {
-          "lineNumber": 8,
-          "column": 14
+          "lineNumber": 31,
+          "column": 26
         },
         "config": {
           "runtime": "nodejs14.x",
@@ -28,7 +28,7 @@
             "config": {}
           }
         ],
-        "lastUpdated": 1650635517382,
+        "lastUpdated": 1650720116645,
         "testCases": {
           "5db437d2-10af-458a-a41f-d54dc226ca48": {
             "id": "5db437d2-10af-458a-a41f-d54dc226ca48",
@@ -65,6 +65,23 @@
     ],
     "currentFileId": "c1621f6c-f27d-4bef-a7b4-1d085ad38003",
     "resources": {
+      "snsKtopic": {
+        "name": "snsKtopic",
+        "type": "SNS",
+        "config": {
+          "topicMode": 0,
+          "topicName": "Ktopic",
+          "topicArn": "arn:aws:sns:ap-south-1:CUR_AWS_ACCOUNT:Ktopic",
+          "snsType": 0,
+          "topicDisplayName": "kname",
+          "subscriptions": [
+            {
+              "type": "sms",
+              "endpoint": "+9772445224"
+            }
+          ]
+        }
+      },
       "apigKAPIany": {
         "name": "apigKAPIany",
         "type": "API_GATEWAY",
@@ -242,91 +259,12 @@
           }
         }
       },
-      "redis-kcluster": {
-        "name": "redis-kcluster",
-        "type": "Redis",
+      "ses-testsigma18+April20th2022GSK@gmail.com": {
+        "name": "ses-testsigma18+April20th2022GSK@gmail.com",
+        "type": "SES",
         "config": {
-          "clusterConfig": {
-            "engineType": "redis",
-            "clusterSpec": {
-              "instanceFamily": "r5",
-              "nodeTypeClass": "cache.r5.large",
-              "engineVersion": "5.0.4",
-              "clusterModeEnabled": false,
-              "autoFailoverEnabled": true,
-              "numOfShards": 3,
-              "numOfReplicas": 2,
-              "deployedEngineVersion": "5.0.4",
-              "deployedInstanceFamily": "t2",
-              "deployedNodeTypeClass": "cache.t2.small"
-            },
-            "clusterSetting": {
-              "clusterName": "kcluster",
-              "clusterDescription": "kclustdescrp",
-              "port": 6379
-            },
-            "vpcSpec": {
-              "vpcType": "NEW",
-              "existingVPC": {
-                "vpcID": "",
-                "subNetID": "",
-                "securityGroupID": ""
-              },
-              "newVPC": {
-                "vpcName": "kvpc",
-                "vpcIPv4CIDR": "10.0.0.0/16",
-                "subnetName": "ksubset",
-                "subnetIPv4CIDR": "10.0.0.0/20"
-              }
-            },
-            "host": "kcluster.gihywh.ng.0001.aps1.cache.amazonaws.com",
-            "doesExist": true,
-            "alreadyDeployed": true,
-            "redisClient": "",
-            "external": false
-          },
-          "clusterResources": [],
-          "editMode": true,
-          "enableInject": true,
-          "isGlobalEditMode": false,
-          "isClusterSelectionValid": true,
-          "isNewFromGlobal": false,
-          "operation": {
-            "str": "REDIS_PERSIST",
-            "operation": "persist",
-            "displayName": "PERSIST",
-            "type": {
-              "str": "REDIS_KEYS",
-              "type": "keys",
-              "displayName": "KEYS"
-            }
-          },
-          "mode": 0,
-          "params": [],
-          "projectRegion": "ap-south-1",
-          "reusableMode": false,
-          "showOperations": true,
-          "validator": {
-            "validatableFields": {},
-            "validity": true
-          }
-        }
-      },
-      "snsKtopic": {
-        "name": "snsKtopic",
-        "type": "SNS",
-        "config": {
-          "topicMode": 0,
-          "topicName": "Ktopic",
-          "topicArn": "arn:aws:sns:ap-south-1:CUR_AWS_ACCOUNT:Ktopic",
-          "snsType": 0,
-          "topicDisplayName": "kname",
-          "subscriptions": [
-            {
-              "type": "sms",
-              "endpoint": "+9772445224"
-            }
-          ]
+          "selectedIdentity": "testsigma18+April20th2022GSK@gmail.com",
+          "projectRegion": "ap-south-1"
         }
       }
     },
@@ -374,7 +312,7 @@
     "platform": "AWS",
     "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1650637304210
+    "lastSave": 1650720566963
   },
   "VCS_STATE": {
     "provider": "GitHub",
